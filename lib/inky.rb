@@ -32,7 +32,7 @@ module Inky
     def release_the_kraken(xml_string)
       xml_string = xml_string.gsub(/doctype/i, 'DOCTYPE')
       raws, str = Inky::Core.extract_raws(xml_string)
-      xml_doc = Nokogiri::XML(str)
+      xml_doc = Nokogiri::HTML(str)
       if self.components_exist?(xml_doc)
         self.transform_doc(xml_doc.root)
       end

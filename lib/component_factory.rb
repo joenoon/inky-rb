@@ -4,7 +4,7 @@ module ComponentFactory
     # TODO:  Handle changed names
     transform_method = :"_transform_#{self.component_lookup[elem.name]}"
     if self.respond_to?(transform_method)
-      Nokogiri::XML(self.send(transform_method, elem, inner)).root
+      Nokogiri::HTML(self.send(transform_method, elem, inner)).root
     else
       nil
     end
